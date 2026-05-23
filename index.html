@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Fire Booster Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a, #111827, #1e293b);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 380px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: rgba(0,255,200,0.08);
+      border-radius: 50%;
+      top: -100px;
+      right: -80px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #00ffcc, #00a2ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: black;
+      box-shadow: 0 0 25px rgba(0,255,200,0.5);
+    }
+
+    .logo h1 {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .status {
+      background: rgba(0,255,120,0.15);
+      color: #00ff88;
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .ping-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 22px;
+      padding: 18px;
+      margin-bottom: 22px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .ping {
+      font-size: 52px;
+      font-weight: 700;
+      color: #00ffcc;
+    }
+
+    .ping-card p {
+      color: #a5b4fc;
+      margin-top: 4px;
+    }
+
+    .feature {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 16px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(0,255,200,0.15);
+    }
+
+    .feature-info h3 {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .feature-info span {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    .toggle {
+      width: 58px;
+      height: 30px;
+      background: #334155;
+      border-radius: 50px;
+      position: relative;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .toggle::before {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: white;
+      border-radius: 50%;
+      top: 3px;
+      left: 3px;
+      transition: 0.3s;
+    }
+
+    .toggle.active {
+      background: linear-gradient(135deg, #00ffcc, #00a2ff);
+    }
+
+    .toggle.active::before {
+      left: 31px;
+    }
+
+    .launch-btn {
+      width: 100%;
+      padding: 18px;
+      border: none;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #00ffcc, #00a2ff);
+      color: black;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 12px;
+      box-shadow: 0 0 25px rgba(0,255,200,0.3);
+    }
+
+    .launch-btn:hover {
+      transform: scale(1.03);
+    }
+
+    .loading-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+
+    .loading-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .loader {
+      width: 120px;
+      height: 120px;
+      border: 8px solid rgba(255,255,255,0.15);
+      border-top: 8px solid #00ffcc;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      box-shadow: 0 0 30px rgba(0,255,200,0.5);
+    }
+
+    .loading-text {
+      margin-top: 25px;
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      text-align: center;
+    }
+
+    .progress {
+      margin-top: 12px;
+      color: #00ffcc;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 18px;
+      color: #64748b;
+      font-size: 12px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .stat-box {
+      background: rgba(255,255,255,0.05);
+      border-radius: 18px;
+      padding: 14px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat-box h2 {
+      color: #00ffcc;
+      font-size: 22px;
+    }
+
+    .stat-box span {
+      font-size: 11px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <div class="logo-icon">FF</div>
+        <div>
+          <h1>FREE FIRE<br>BOOSTER PRO</h1>
+        </div>
+      </div>
+      <div class="status">ONLINE</div>
+    </div>
+
+    <div class="ping-card">
+      <div class="ping" id="ping">18ms</div>
+      <p>Độ ổn định mạng tối ưu</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat-box">
+        <h2>90FPS</h2>
+        <span>FPS Unlock</span>
+      </div>
+
+      <div class="stat-box">
+        <h2>HD</h2>
+        <span>Graphic</span>
+      </div>
+
+      <div class="stat-box">
+        <h2>0%</h2>
+        <span>Lag</span>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-info">
+        <h3>Tăng FPS</h3>
+        <span>Tối ưu tốc độ khung hình</span>
+      </div>
+      <div class="toggle"></div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-info">
+        <h3>Giảm Ping</h3>
+        <span>Tăng độ ổn định kết nối</span>
+      </div>
+      <div class="toggle"></div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-info">
+        <h3>RAM Cleaner</h3>
+        <span>Giải phóng bộ nhớ thiết bị</span>
+      </div>
+      <div class="toggle"></div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-info">
+        <h3>GPU Boost</h3>
+        <span>Tăng hiệu năng đồ họa</span>
+      </div>
+      <div class="toggle"></div>
+    </div>
+
+    <button class="launch-btn" id="boostBtn">⚡ KÍCH HOẠT BOOST</button>
+
+    <button class="launch-btn" onclick="openGame()" style="margin-top:10px;background:linear-gradient(135deg,#f59e0b,#ef4444);color:white;">
+      🎮 VÀO GAME FREE FIRE
+    </button>
+
+    <div class="footer">
+      Free Fire Booster Pro v2.0
+    </div>
+  </div>
+
+  <div class="loading-overlay" id="loading">
+    <div class="loader"></div>
+    <div class="loading-text">Đang tối ưu hệ thống...</div>
+    <div class="progress" id="progress">0%</div>
+  </div>
+
+  <script>
+    const toggles = document.querySelectorAll('.toggle');
+
+    toggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+      });
+    });
+
+    const boostBtn = document.getElementById('boostBtn');
+    const loading = document.getElementById('loading');
+    const progress = document.getElementById('progress');
+
+    boostBtn.addEventListener('click', () => {
+      loading.classList.add('active');
+
+      let percent = 0;
+
+      const interval = setInterval(() => {
+        percent += Math.floor(Math.random() * 12) + 4;
+
+        if (percent >= 100) {
+          percent = 100;
+          clearInterval(interval);
+
+          setTimeout(() => {
+            loading.classList.remove('active');
+            alert('✅ Boost thành công! Hiệu năng đã được tối ưu.');
+          }, 600);
+        }
+
+        progress.innerText = percent + '%';
+      }, 250);
+    });
+
+    function openGame() {
+      alert('🎮 Đang khởi động Free Fire...');
+
+      // Android Intent mở Free Fire
+      window.location.href = 'intent://#Intent;package=com.dts.freefireth;end';
+    }
+
+    // Fake ping animation
+    const pingElement = document.getElementById('ping');
+
+    setInterval(() => {
+      const ping = Math.floor(Math.random() * 10) + 12;
+      pingElement.innerText = ping + 'ms';
+    }, 2000);
+  </script>
+
+</body>
+</html>
