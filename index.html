@@ -1,234 +1,194 @@
-<script src="https://pl29389498.effectivecpmnetwork.com/5e/0a/84/5e0a84ab14374ebfbe95579431ef3f9e.js"></script>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Fire Booster Pro</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FF Booster Pro</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: Arial, sans-serif;
     }
 
     body {
-      background: linear-gradient(135deg, #0f172a, #111827, #1e293b);
+      background: linear-gradient(135deg, #0f0f0f, #1a1a2e, #16213e);
       color: white;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       overflow-x: hidden;
     }
 
     .container {
-      width: 380px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(20px);
-      border-radius: 28px;
-      padding: 24px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .container::before {
-      content: '';
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      background: rgba(0,255,200,0.08);
-      border-radius: 50%;
-      top: -100px;
-      right: -80px;
+      width: 100%;
+      max-width: 420px;
+      margin: auto;
+      padding: 20px;
     }
 
     .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      text-align: center;
+      margin-top: 20px;
       margin-bottom: 25px;
     }
 
     .logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #ff0000, #ff7300);
       display: flex;
       align-items: center;
-      gap: 12px;
-    }
-
-    .logo-icon {
-      width: 55px;
-      height: 55px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #00ffcc, #00a2ff);
-      display: flex;
       justify-content: center;
-      align-items: center;
-      font-size: 24px;
+      margin: auto;
+      font-size: 32px;
       font-weight: bold;
-      color: black;
-      box-shadow: 0 0 25px rgba(0,255,200,0.5);
+      box-shadow: 0 0 25px rgba(255, 115, 0, 0.8);
+      animation: glow 2s infinite alternate;
     }
 
-    .logo h1 {
-      font-size: 22px;
-      font-weight: 700;
-      line-height: 1.2;
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 15px #ff7300;
+      }
+      to {
+        box-shadow: 0 0 35px #ff0000;
+      }
     }
 
-    .status {
-      background: rgba(0,255,120,0.15);
-      color: #00ff88;
-      padding: 6px 12px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 600;
+    h1 {
+      margin-top: 15px;
+      font-size: 28px;
+      letter-spacing: 1px;
     }
 
-    .ping-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 22px;
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
       padding: 18px;
-      margin-bottom: 22px;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .ping {
-      font-size: 52px;
-      font-weight: 700;
-      color: #00ffcc;
-    }
-
-    .ping-card p {
-      color: #a5b4fc;
-      margin-top: 4px;
+      margin-bottom: 18px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
 
     .feature {
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
-      padding: 16px;
-      margin-bottom: 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: 0.3s;
-      position: relative;
-      overflow: hidden;
+      margin-bottom: 18px;
     }
 
-    .feature:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 20px rgba(0,255,200,0.15);
+    .feature:last-child {
+      margin-bottom: 0;
     }
 
-    .feature-info h3 {
-      font-size: 15px;
-      margin-bottom: 4px;
+    .feature-text {
+      display: flex;
+      flex-direction: column;
     }
 
-    .feature-info span {
+    .feature-title {
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .feature-sub {
       font-size: 12px;
-      color: #94a3b8;
+      opacity: 0.7;
+      margin-top: 4px;
     }
 
-    .toggle {
-      width: 58px;
-      height: 30px;
-      background: #334155;
-      border-radius: 50px;
+    .switch {
       position: relative;
-      cursor: pointer;
-      transition: 0.3s;
+      width: 60px;
+      height: 30px;
     }
 
-    .toggle::before {
-      content: '';
+    .switch input {
+      display: none;
+    }
+
+    .slider {
       position: absolute;
-      width: 24px;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #444;
+      transition: .4s;
+      border-radius: 30px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
       height: 24px;
-      background: white;
-      border-radius: 50%;
-      top: 3px;
+      width: 24px;
       left: 3px;
-      transition: 0.3s;
+      bottom: 3px;
+      background: white;
+      transition: .4s;
+      border-radius: 50%;
     }
 
-    .toggle.active {
-      background: linear-gradient(135deg, #00ffcc, #00a2ff);
+    input:checked + .slider {
+      background: linear-gradient(45deg, #00ff99, #00ccff);
     }
 
-    .toggle.active::before {
-      left: 31px;
+    input:checked + .slider:before {
+      transform: translateX(30px);
     }
 
-    .launch-btn {
+    .boost-btn {
       width: 100%;
       padding: 18px;
       border: none;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #00ffcc, #00a2ff);
-      color: black;
-      font-size: 17px;
-      font-weight: 700;
+      border-radius: 18px;
+      background: linear-gradient(45deg, #ff0000, #ff7300);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
       cursor: pointer;
       transition: 0.3s;
-      margin-top: 12px;
-      box-shadow: 0 0 25px rgba(0,255,200,0.3);
+      box-shadow: 0 0 20px rgba(255, 115, 0, 0.5);
     }
 
-    .launch-btn:hover {
+    .boost-btn:hover {
       transform: scale(1.03);
     }
 
-    .loading-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.3s;
+    .status {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 15px;
+      color: #00ff99;
+      min-height: 20px;
     }
 
-    .loading-overlay.active {
-      opacity: 1;
-      visibility: visible;
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 999;
     }
 
     .loader {
       width: 120px;
       height: 120px;
-      border: 8px solid rgba(255,255,255,0.15);
-      border-top: 8px solid #00ffcc;
+      border: 10px solid rgba(255,255,255,0.2);
+      border-top: 10px solid #00ffcc;
       border-radius: 50%;
       animation: spin 1s linear infinite;
-      box-shadow: 0 0 30px rgba(0,255,200,0.5);
-    }
-
-    .loading-text {
-      margin-top: 25px;
-      font-size: 18px;
-      font-weight: 600;
-      color: white;
-      text-align: center;
-    }
-
-    .progress {
-      margin-top: 12px;
-      color: #00ffcc;
-      font-size: 28px;
-      font-weight: bold;
+      box-shadow: 0 0 30px #00ffcc;
     }
 
     @keyframes spin {
@@ -237,174 +197,216 @@
       }
     }
 
-    .footer {
-      text-align: center;
-      margin-top: 18px;
-      color: #64748b;
-      font-size: 12px;
+    .loading-text {
+      margin-top: 25px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #00ffcc;
+      letter-spacing: 1px;
+      animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from {
+        opacity: 0.5;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     .stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
       margin-bottom: 18px;
     }
 
     .stat-box {
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.06);
       border-radius: 18px;
-      padding: 14px;
+      padding: 15px;
       text-align: center;
-      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .stat-box h2 {
+    .stat-number {
+      font-size: 24px;
+      font-weight: bold;
       color: #00ffcc;
-      font-size: 22px;
     }
 
-    .stat-box span {
-      font-size: 11px;
-      color: #94a3b8;
+    .stat-label {
+      margin-top: 6px;
+      font-size: 13px;
+      opacity: 0.7;
     }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      opacity: 0.6;
+      font-size: 13px;
+    }
+
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="header">
-      <div class="logo">
-        <div class="logo-icon">FF</div>
-        <div>
-          <h1>FREE FIRE<br>BOOSTER PRO</h1>
-        </div>
-      </div>
-      <div class="status">ONLINE</div>
+<div class="loading-screen" id="loadingScreen">
+  <div class="loader"></div>
+  <div class="loading-text" id="loadingText">Đang kích hoạt...</div>
+</div>
+
+<div class="container">
+
+  <div class="header">
+    <div class="logo">FF</div>
+    <h1>BOOSTER PRO</h1>
+  </div>
+
+  <div class="stats">
+    <div class="stat-box">
+      <div class="stat-number" id="fps">60</div>
+      <div class="stat-label">FPS</div>
     </div>
 
-    <div class="ping-card">
-      <div class="ping" id="ping">18ms</div>
-      <p>Độ ổn định mạng tối ưu</p>
-    </div>
-
-    <div class="stats">
-      <div class="stat-box">
-        <h2>90FPS</h2>
-        <span>FPS Unlock</span>
-      </div>
-
-      <div class="stat-box">
-        <h2>HD</h2>
-        <span>Graphic</span>
-      </div>
-
-      <div class="stat-box">
-        <h2>0%</h2>
-        <span>Lag</span>
-      </div>
-    </div>
-
-    <div class="feature">
-      <div class="feature-info">
-        <h3>Tăng FPS</h3>
-        <span>Tối ưu tốc độ khung hình</span>
-      </div>
-      <div class="toggle"></div>
-    </div>
-
-    <div class="feature">
-      <div class="feature-info">
-        <h3>Giảm Ping</h3>
-        <span>Tăng độ ổn định kết nối</span>
-      </div>
-      <div class="toggle"></div>
-    </div>
-
-    <div class="feature">
-      <div class="feature-info">
-        <h3>RAM Cleaner</h3>
-        <span>Giải phóng bộ nhớ thiết bị</span>
-      </div>
-      <div class="toggle"></div>
-    </div>
-
-    <div class="feature">
-      <div class="feature-info">
-        <h3>GPU Boost</h3>
-        <span>Tăng hiệu năng đồ họa</span>
-      </div>
-      <div class="toggle"></div>
-    </div>
-
-    <button class="launch-btn" id="boostBtn">⚡ KÍCH HOẠT BOOST</button>
-
-    <button class="launch-btn" onclick="openGame()" style="margin-top:10px;background:linear-gradient(135deg,#f59e0b,#ef4444);color:white;">
-      🎮 VÀO GAME FREE FIRE
-    </button>
-
-    <div class="footer">
-      Free Fire Booster Pro v2.0
+    <div class="stat-box">
+      <div class="stat-number" id="ping">28</div>
+      <div class="stat-label">PING</div>
     </div>
   </div>
 
-  <div class="loading-overlay" id="loading">
-    <div class="loader"></div>
-    <div class="loading-text">Đang tối ưu hệ thống...</div>
-    <div class="progress" id="progress">0%</div>
+  <div class="card">
+
+    <div class="feature">
+      <div class="feature-text">
+        <div class="feature-title">Tăng FPS</div>
+        <div class="feature-sub">Tối ưu tốc độ khung hình</div>
+      </div>
+
+      <label class="switch">
+        <input type="checkbox" class="toggle-feature">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="feature">
+      <div class="feature-text">
+        <div class="feature-title">Giảm Lag</div>
+        <div class="feature-sub">Ổn định kết nối game</div>
+      </div>
+
+      <label class="switch">
+        <input type="checkbox" class="toggle-feature">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="feature">
+      <div class="feature-text">
+        <div class="feature-title">Tăng Độ Nhạy</div>
+        <div class="feature-sub">Aim mượt hơn</div>
+      </div>
+
+      <label class="switch">
+        <input type="checkbox" class="toggle-feature">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="feature">
+      <div class="feature-text">
+        <div class="feature-title">RAM Cleaner</div>
+        <div class="feature-sub">Dọn dẹp bộ nhớ</div>
+      </div>
+
+      <label class="switch">
+        <input type="checkbox" class="toggle-feature">
+        <span class="slider"></span>
+      </label>
+    </div>
+
   </div>
 
-  <script>
-    const toggles = document.querySelectorAll('.toggle');
+  <button class="boost-btn" onclick="startBoost()">
+    ⚡ KÍCH HOẠT BOOST ⚡
+  </button>
 
-    toggles.forEach(toggle => {
-      toggle.addEventListener('click', () => {
-        toggle.classList.toggle('active');
-      });
-    });
+  <div class="status" id="statusText"></div>
 
-    const boostBtn = document.getElementById('boostBtn');
-    const loading = document.getElementById('loading');
-    const progress = document.getElementById('progress');
+  <div class="footer">
+    FF Booster Pro v2.0
+  </div>
 
-    boostBtn.addEventListener('click', () => {
-      loading.classList.add('active');
+</div>
 
-      let percent = 0;
+<audio id="soundOn" preload="auto">
+  <source src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg" type="audio/ogg">
+</audio>
 
-      const interval = setInterval(() => {
-        percent += Math.floor(Math.random() * 12) + 4;
+<audio id="soundDone" preload="auto">
+  <source src="https://actions.google.com/sounds/v1/cartoon/concussive_drum_hit.ogg" type="audio/ogg">
+</audio>
 
-        if (percent >= 100) {
-          percent = 100;
-          clearInterval(interval);
+<script>
 
-          setTimeout(() => {
-            loading.classList.remove('active');
-            alert('✅ Boost thành công! Hiệu năng đã được tối ưu.');
-          }, 600);
+  const loadingScreen = document.getElementById('loadingScreen');
+  const loadingText = document.getElementById('loadingText');
+  const statusText = document.getElementById('statusText');
+
+  const soundOn = document.getElementById('soundOn');
+  const soundDone = document.getElementById('soundDone');
+
+  const toggles = document.querySelectorAll('.toggle-feature');
+
+  toggles.forEach(toggle => {
+    toggle.addEventListener('change', () => {
+
+      loadingScreen.style.display = 'flex';
+      loadingText.innerText = 'Đang kích hoạt tính năng...';
+
+      soundOn.play();
+
+      setTimeout(() => {
+        loadingScreen.style.display = 'none';
+
+        if(toggle.checked){
+          statusText.innerHTML = '✅ Đã bật tính năng thành công';
+        }else{
+          statusText.innerHTML = '❌ Đã tắt tính năng';
         }
 
-        progress.innerText = percent + '%';
-      }, 250);
+      }, 1800);
+
     });
+  });
 
-    function openGame() {
-      alert('🎮 Đang khởi động Free Fire...');
+  function startBoost(){
 
-      // Android Intent mở Free Fire
-      window.location.href = 'intent://#Intent;package=com.dts.freefireth;end';
-    }
+    loadingScreen.style.display = 'flex';
+    loadingText.innerText = 'Đang tối ưu Free Fire...';
 
-    // Fake ping animation
-    const pingElement = document.getElementById('ping');
+    soundOn.play();
 
-    setInterval(() => {
-      const ping = Math.floor(Math.random() * 10) + 12;
-      pingElement.innerText = ping + 'ms';
-    }, 2000);
-  </script>
+    let fps = document.getElementById('fps');
+    let ping = document.getElementById('ping');
+
+    setTimeout(() => {
+
+      fps.innerText = '120';
+      ping.innerText = '8';
+
+      loadingScreen.style.display = 'none';
+
+      soundDone.play();
+
+      statusText.innerHTML = '🚀 BOOST THÀNH CÔNG - GAME ĐÃ ĐƯỢC TỐI ƯU';
+
+    }, 3500);
+
+  }
+
+</script>
 
 </body>
 </html>
-
